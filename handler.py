@@ -1,4 +1,4 @@
-import os
+import os.path
 import logging
 import pythoncom
 import xlwings as xw
@@ -15,6 +15,7 @@ class Handler(FileSystemEventHandler):
         self.not_path = not_path
         self.main_wb_path = main_wb_path
         self.ignore_strings.append(os.path.basename(main_wb_path))
+        self.ignore_strings.append(os.path.basename(log_path))
         self.logger = self.create_logger()
 
     def create_logger(self):
